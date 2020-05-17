@@ -10,6 +10,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.util.Log;
 
 public class FGSvc extends Service {
@@ -35,11 +36,7 @@ public class FGSvc extends Service {
                         Log.i("FGSvc", "Location permission denied");
                     }
 
-                    try {
-                        Thread.sleep(10_000L);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+                    SystemClock.sleep(10_000L);
                 }
             }
         }).start();
